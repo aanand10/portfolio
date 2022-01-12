@@ -1,4 +1,13 @@
+/* =========== font links =========== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+/* =========== Root Styles =========== */
+:root {
+  --title-color: #00344cba;
+  --subtitle-color: #3e4756;
+  /* --normaltext-color: ;
+  --smalltext-color: ; */
+}
 
 * {
   margin: 0;
@@ -123,14 +132,19 @@ body {
 .profileText h2 span {
   font-size: 0.8em;
   font-weight: 300;
-  /* color: #fff;
-  /* font-family: monospace; */
-  /* overflow: hidden; Ensures the content is not revealed until the animation */
-  /* border-right: 0.15em solid orange; The typwriter cursor */
-  /* white-space: nowrap; Keeps the content on a single line */
-  /* margin: 0 auto; Gives that scrolling effect as the typing happens */
-  /* letter-spacing: 0.15em; Adjust as needed */
-  /* animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite; */
+  /* color: #fff;*/
+  font-family: monospace;
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  /*Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em;
+  /* Adjust as needed */
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
   color: #3e4756;
   position: relative;
   top: 50%;
@@ -430,7 +444,66 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 1rem;
 }
-.more-project-link {
+
+/* more project button  */
+.cta {
+  border: none;
+  background: none;
+}
+.cta:hover {
+  cursor: pointer;
+}
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  padding-right: 15px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.cta:hover span {
+  letter-spacing: 5px;
+}
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+.cta #Path_10 {
+  /* color: #368fd8; */
+  color: #38ffff;
+}
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  /* color: black; */
+  color: #3e4756;
+  font-weight: 470;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 /* internships  */
 .internship .box .project_box .text h4 {
@@ -445,15 +518,15 @@ body {
 } */
 
 /* The typing effect */
-/* @keyframes typing {
+@keyframes typing {
   from {
     width: 0;
   }
   to {
     width: 100%;
   }
-} */
-/* The typewriter cursor effect
+}
+/* The typewriter cursor effect*/
 @keyframes blink-caret {
   from,
   to {
@@ -462,13 +535,13 @@ body {
   50% {
     border-color: orange;
   }
-} */
+}
 /* Animation */
 .anim-typewriter {
   animation: typewriter 4s steps(44) 1s 1 normal both,
     blinkTextCursor 500ms steps(44) infinite normal;
 }
-@keyframes typewriter {
+@keyframes typing {
   from {
     width: 0;
   }
