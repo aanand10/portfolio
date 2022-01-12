@@ -133,13 +133,13 @@ body {
   line-height: 1.4em;
 }
 .profileText h2 span {
-  font-size: 0.8em;
-  font-weight: 300;
+  font-size: 0.7em;
+  font-weight: 400;
   /* color: #fff;*/
-  font-family: monospace;
+  /* font-family: monospace; */
   overflow: hidden;
   /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid orange;
+  /* border-right: 0.15em solid orange; */
   /* The typwriter cursor */
   white-space: nowrap;
   /* Keeps the content on a single line */
@@ -148,7 +148,7 @@ body {
   letter-spacing: 0.15em;
   /* Adjust as needed */
   animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
-  color: #30010c;
+  color: #030102;
   position: relative;
   top: 50%;
   width: 24em;
@@ -328,7 +328,15 @@ body {
   background-image: radial-gradient(#ffffff 0.5px, #b9b9b9 0.5px);
   background-size: 10px 10px; */
 }
-
+/* .about:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  background: #000;
+  color: white !important;
+} */
 /*======================= skills section =========================== */
 .about.skills {
   /* background-color: ; */
@@ -536,11 +544,11 @@ body {
     border-color: transparent;
   }
   50% {
-    border-color: orange;
+    border-color: rgba(255, 209, 122, 0.808);
   }
 }
 /* Animation */
-.anim-typewriter {
+/* .anim-typewriter {
   animation: typewriter 4s steps(44) 1s 1 normal both,
     blinkTextCursor 500ms steps(44) infinite normal;
 }
@@ -559,7 +567,7 @@ body {
   to {
     border-right-color: transparent;
   }
-}
+} */
 
 @media screen and (max-width: 600px) {
   .container .right_side {
