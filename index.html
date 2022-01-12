@@ -14,6 +14,7 @@
     integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="shortcut icon" href="images/letter-a.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -145,7 +146,8 @@
     <!-- right side starts here  -->
     <!-- ==================== About section ======================== -->
     <div class="right_side">
-      <div class="about">
+      <div class="about" data-aos="fade-up"
+      data-aos-anchor-placement="bottom-center" data-aos-duration="1000">
         <h2 class="title2">Career Objective</h2>
         <!-- <hr class="title_underline about_title_underline" /> -->
         <p>
@@ -154,7 +156,8 @@
         </p>
       </div>
 <!-- ======================= skills section =========================== -->
-      <div class="about skills">
+      <div class="about skills" data-aos="fade-up"
+      data-aos-anchor-placement="center" data-aos-duration="2000">
         <h2 class="title2">Professional Skills</h2>
         <!-- <hr class="title_underline about_title_underline" /> -->
         <div class="skills--names">
@@ -170,7 +173,8 @@
        
       </div>
       <!-- ============= work experience ===============  -->
-      <div class="about internship work-exp"> 
+      <div class="about internship work-exp" data-aos="fade-up"
+      data-aos-anchor-placement="center" data-aos-duration="3000" > 
         <h2 class="title2">Work Experience</h2>
        <!-- <hr class="title_underline about_title_underline" /> -->
        <div class="box">
@@ -371,6 +375,12 @@
               </div>
             
           </div>
+
+          <!-- script  -->
+          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
