@@ -147,13 +147,13 @@ body {
   /*Gives that scrolling effect as the typing happens */
   letter-spacing: 0.15em;
   /* Adjust as needed */
-  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+  /* animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite; */
   color: #030102;
   position: relative;
   top: 50%;
   width: 24em;
   margin: 0 auto;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  /* border-right: 2px solid rgba(255, 255, 255, 0.75); */
   /* font-size: 180%; */
   text-align: center;
   white-space: nowrap;
