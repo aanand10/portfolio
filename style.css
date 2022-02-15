@@ -113,6 +113,7 @@ body {
   border-radius: 50%;
   overflow: hidden;
   background: white;
+  border: 2px solid #ffd700;
 }
 .profileText .imgBx img {
   position: absolute;
@@ -122,6 +123,7 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
 .profileText h2 {
   /* color: #fff; */
   color: #675757bd;
