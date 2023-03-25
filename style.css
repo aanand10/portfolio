@@ -622,6 +622,7 @@ body {
   }
   .bn40::after {
     max-width: 50%;
+  }
 }
 @media screen and (max-width: 480px) {
   .container .right_side {
