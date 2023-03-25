@@ -396,6 +396,37 @@ body {
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
 }
+
+/* yt live section  */
+.yt-live-txt {
+  -webkit-text-stroke: 0.5px #ff000052;
+}
+
+/* watch now btn style  */
+.bn40 {
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: large;
+  padding: 4px 6px;
+  padding-left: 0;
+  /* color: #fff !important; */
+}
+
+.bn40::after {
+  max-width: 30%;
+  height: 2px;
+  display: block;
+  content: "";
+  background: linear-gradient(-90deg, #ff9100 0%, #f10366 50%, #6173ff 100%);
+  opacity: 1;
+  margin-bottom: -6px;
+  margin-top: 1px;
+}
+
+.bn40div {
+  display: flex;
+}
+
 /*=========== intrest section ============ */
 
 .intrest.forMobile {
@@ -589,6 +620,8 @@ body {
   .intrest ul {
     grid-template-columns: repeat(2, 1fr);
   }
+  .bn40::after {
+    max-width: 50%;
 }
 @media screen and (max-width: 480px) {
   .container .right_side {
