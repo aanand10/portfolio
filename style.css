@@ -620,6 +620,9 @@ body {
   .intrest ul {
     grid-template-columns: repeat(2, 1fr);
   }
+  .bn40div {
+    margin: 1rem 0;
+  }
   .bn40::after {
     max-width: 50%;
   }
