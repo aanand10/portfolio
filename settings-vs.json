@@ -1,0 +1,85 @@
+{
+  "code-runner.runInTerminal": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Cobalt Next Minimal",
+  "tabnine.experimentalAutoImports": true,
+  "editor.formatOnSave": true,
+  "editor.disableTranslate3d": true,
+  "editor.fontFamily": " 'Operator Mono', 'Cascadia Code Regular', Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "terminal.integrated.tabs.enabled": true,
+  "C_Cpp.updateChannel": "Insiders",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "editor.lineHeight": 24,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "[java]": {
+    "editor.defaultFormatter": "mwpb.java-prettier-formatter"
+  },
+  "cSpell.userWords": ["Nashik", "Servlet"],
+  "git.enableSmartCommit": true,
+  "editor.mouseWheelZoom": true,
+  "screencastMode.fontSize": 40,
+  "screencastMode.verticalOffset": 0,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "on",
+  "files.autoSave": "afterDelay",
+  "git.confirmSync": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "actionButtons": {
+    "defaultColor": "#ff0034", // Can also use string color names.
+    "loadNpmCommands": false, // Disables automatic generation of actions for npm commands.
+    "reloadButton": "♻️", // Custom reload button text or icon (default ↻). null value enables automatic reload on configuration change
+    "commands": [
+      {
+        "cwd": "${workspaceFolderBasename}", // Terminal initial folder ${workspaceFolder} and os user home as defaults
+        "name": "$(triangle-right) Start",
+        "color": "green",
+        "singleInstance": true,
+        "command": "npm start" // This is executed in the terminal.
+      }
+      // {
+      //   "name": "$(tools) Build Cargo",
+      //   "color": "green",
+      //   "command": "cargo build ${file}"
+      // },
+      // {
+      //   "name": "$(split-horizontal) Split editor",
+      //   "color": "orange",
+      //   "useVsCodeApi": true,
+      //   "command": "workbench.action.splitEditor"
+      // }
+    ]
+  },
+  "editor.accessibilitySupport": "off",
+  "console-ninja.toolsToEnableSupportAutomaticallyFor": {
+    "live-server": true,
+    "live-preview": true
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "eq-material-theme-icons",
+  "terminal.integrated.env.windows": {},
+  "workbench.editorAssociations": {
+    "*.toml": "default"
+  },
+  "console-ninja.featureSet": "Community",
+  "editor.fontVariations": false
+}
