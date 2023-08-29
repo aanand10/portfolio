@@ -666,3 +666,147 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+@keyframes gradientAnimation {
+  0%,
+  100% {
+    background-image: linear-gradient(
+      45deg,
+      #4caf50,
+      #2196f3,
+      #ffc107,
+      #e91e63,
+      #673ab7,
+      #ff5722,
+      #4caf50
+    );
+  }
+  10% {
+    background-image: linear-gradient(
+      45deg,
+      #2196f3,
+      #ffc107,
+      #e91e63,
+      #673ab7,
+      #ff5722,
+      #4caf50,
+      #2196f3
+    );
+  }
+  20% {
+    background-image: linear-gradient(
+      45deg,
+      #ffc107,
+      #e91e63,
+      #673ab7,
+      #ff5722,
+      #4caf50,
+      #2196f3,
+      #ffc107
+    );
+  }
+  30% {
+    background-image: linear-gradient(
+      45deg,
+      #e91e63,
+      #673ab7,
+      #ff5722,
+      #4caf50,
+      #2196f3,
+      #ffc107,
+      #e91e63
+    );
+  }
+  40% {
+    background-image: linear-gradient(
+      45deg,
+      #673ab7,
+      #ff5722,
+      #4caf50,
+      #2196f3,
+      #ffc107,
+      #e91e63,
+      #673ab7
+    );
+  }
+  50% {
+    background-image: linear-gradient(
+      45deg,
+      #ff5722,
+      #4caf50,
+      #2196f3,
+      #ffc107,
+      #e91e63,
+      #673ab7,
+      #ff5722
+    );
+  }
+  60% {
+    background-image: linear-gradient(
+      45deg,
+      #4caf50,
+      #2196f3,
+      #ffc107,
+      #e91e63,
+      #673ab7,
+      #ff5722,
+      #4caf50
+    );
+  }
+  70% {
+    background-image: linear-gradient(
+      45deg,
+      #2196f3,
+      #ffc107,
+      #e91e63,
+      #673ab7,
+      #ff5722,
+      #4caf50,
+      #2196f3
+    );
+  }
+  80% {
+    background-image: linear-gradient(
+      45deg,
+      #ffc107,
+      #e91e63,
+      #673ab7,
+      #ff5722,
+      #4caf50,
+      #2196f3,
+      #ffc107
+    );
+  }
+  90% {
+    background-image: linear-gradient(
+      45deg,
+      #e91e63,
+      #673ab7,
+      #ff5722,
+      #4caf50,
+      #2196f3,
+      #ffc107,
+      #e91e63
+    );
+  }
+}
+
+.styled-text {
+  background-image: linear-gradient(
+    45deg,
+    #4caf50,
+    #2196f3,
+    #ffc107,
+    #e91e63,
+    #673ab7,
+    #ff5722,
+    #4caf50
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  font-size: 16px;
+  animation: gradientAnimation 10s linear infinite;
+  -webkit-animation: gradientAnimation 10s linear infinite;
+}
