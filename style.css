@@ -307,6 +307,18 @@ body {
   flex-direction: row;
   margin: 20px 0;
 }
+.about .box .project_box.latest_blog:hover {
+  box-shadow: 2px 2px 4px white !important;
+}
+.latest_blog {
+  position: relative;
+}
+.ribbion {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  padding: 2px;
+}
 .about .box .project_box .year_company {
   min-width: 178px;
 }
