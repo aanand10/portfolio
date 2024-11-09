@@ -1,1 +1,1 @@
-## Click to visit [www.itsanand.tech](https://www.itsanand.tech/)
+## Click to visit [www.itsanand.tech](https://www.anandsuryawanshi.in/)
