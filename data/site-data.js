@@ -99,6 +99,10 @@ const siteData = {
         ],
         companyLogo: "images/razorpay.png",
         companyName: "Razorpay",
+        achievementImages: [
+          "images/achiever_award.jpg",
+          "images/razorpay_achiever_award_2025_anand.jpg",
+        ],
       },
       {
         company: "Indrones Solutions Pvt. Ltd.",

@@ -105,11 +105,42 @@ function renderExperience(data) {
           <div class="experience-content">
             <h4>${job.title}</h4>
             ${job.description ? `<p>${job.description}</p>` : ""}
-            <ul class="experience-highlights">
-              ${job.highlights
-                .map((highlight) => `<li>${highlight}</li>`)
-                .join("")}
-            </ul>
+            
+            <div class="experience-body">
+              <div class="experience-highlights-container">
+                <ul class="experience-highlights">
+                  ${job.highlights
+                    .map((highlight) => `<li>${highlight}</li>`)
+                    .join("")}
+                </ul>
+              </div>
+              
+              ${
+                job.achievementImages && job.achievementImages.length > 0
+                  ? `
+                <div class="achievement-gallery stacked">
+                  <div class="achievement-badge">Featured Achievements</div>
+                  <div class="achievement-stack">
+                    ${job.achievementImages
+                      .map(
+                        (img, index) => `
+                      <div class="achievement-card" style="--index: ${index}">
+                        <div class="achievement-image-wrapper">
+                          <img src="${img}" alt="Achievement Award ${
+                          index + 1
+                        }" alt="Achievement Award" loading="lazy" decoding="async" />
+                        </div>
+                      </div>
+                    `
+                      )
+                      .join("")}
+                  </div>
+                </div>
+              `
+                  : ""
+              }
+            </div>
+
             ${
               job.projects
                 ? `
