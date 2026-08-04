@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize components
   initComponents();
 
+  // Initialize the dot-matrix globes (hero + journey section)
+  if (window.PortfolioGlobe) {
+    window.PortfolioGlobe.initPortfolioGlobes(siteData);
+  }
+
   // Initialize AOS (Animate on Scroll)
   AOS.init({
     duration: 800,
@@ -24,6 +29,11 @@ function initComponents() {
 
   // About
   document.getElementById("about").innerHTML = renderAbout(siteData.about);
+
+  // Journey
+  if (siteData.journey && document.getElementById("journey")) {
+    document.getElementById("journey").innerHTML = renderJourney(siteData.journey);
+  }
 
   // Experience
   document.getElementById("experience").innerHTML = renderExperience(
@@ -59,34 +69,6 @@ function initComponents() {
 
 // Add all event listeners for interactive elements
 function addEventListeners() {
-  // Mobile navigation toggle
-  const mobileToggle = document.querySelector(".mobile-toggle");
-  const nav = document.querySelector(".navigation");
-
-  if (mobileToggle && nav) {
-    mobileToggle.addEventListener("click", function () {
-      nav.classList.toggle("active");
-      this.innerHTML = nav.classList.contains("active")
-        ? '<i class="fas fa-times"></i>'
-        : '<i class="fas fa-bars"></i>';
-    });
-  }
-
-  // Close mobile navigation when clicking outside
-  document.addEventListener("click", function (event) {
-    if (
-      nav &&
-      nav.classList.contains("active") &&
-      !nav.contains(event.target) &&
-      event.target !== mobileToggle
-    ) {
-      nav.classList.remove("active");
-      if (mobileToggle) {
-        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-      }
-    }
-  });
-
   // Smooth scrolling for navigation links
   const navLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -100,14 +82,6 @@ function addEventListeners() {
 
       if (targetElement) {
         e.preventDefault();
-
-        // Close mobile menu if open
-        if (nav && nav.classList.contains("active")) {
-          nav.classList.remove("active");
-          if (mobileToggle) {
-            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-          }
-        }
 
         // Scroll to the target with offset for fixed navigation
         const headerOffset = 80;

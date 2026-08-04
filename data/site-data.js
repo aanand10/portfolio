@@ -14,15 +14,18 @@ const siteData = {
   navigation: {
     logo: {
       icon: "fas fa-code",
+      name: "Anand",
     },
+    // `icon` is used for the icon-only pill on small screens; `cta` renders as the outlined button
     links: [
-      { text: "Home", href: "#hero" },
-      { text: "About", href: "#about" },
-      { text: "Work", href: "#experience" },
-      { text: "Skills", href: "#skills" },
-      { text: "Projects", href: "#projects" },
-      { text: "Blogs", href: "#blogs" },
-      { text: "Contact", href: "#contact" },
+      { text: "Home", href: "#hero", icon: "fas fa-house" },
+      { text: "About", href: "#about", icon: "fas fa-user" },
+      { text: "Journey", href: "#journey", icon: "fas fa-earth-asia" },
+      { text: "Work", href: "#experience", icon: "fas fa-briefcase" },
+      { text: "Skills", href: "#skills", icon: "fas fa-layer-group" },
+      { text: "Projects", href: "#projects", icon: "fas fa-diagram-project" },
+      { text: "Blogs", href: "#blogs", icon: "fas fa-feather-pointed" },
+      { text: "Contact", href: "#contact", icon: "fas fa-envelope", cta: true },
     ],
     social: [
       {
@@ -78,6 +81,41 @@ const siteData = {
       '👨‍💻 Driven by an insatiable curiosity and a commitment to mastery, I excel in the core web technologies – HTML, CSS, JavaScript, and TypeScript – alongside modern powerhouses like <span class="highlight-react">React</span> and <span class="highlight-tailwind">Svelte</span>. My toolkit is always evolving to meet the demands of cutting-edge development.',
       '🎨 I\'m passionate about architecting intuitive and visually captivating UI/UX experiences. Furthermore, my background includes practical application of geospatial data handling through libraries such as <span class="highlight-cesium">Cesium.js</span> and <span class="highlight-leaflet">Leaflet.js</span>. 🌏 This unique blend allows me to approach web development with a broader perspective on data interaction and presentation.',
       "💼 Currently, I'm a Frontend Engineer at <span class=\"highlight-razorpay\">Razorpay</span>, actively involved in shaping the user interfaces for impactful, scalable and performant fintech products. If you're looking for a collaborative frontend or React engineer with a proven ability to deliver and a keen eye for detail, I'd love to connect and explore how my skills can contribute to your team's success. 🤝",
+    ],
+  },
+
+  // Journey section (globe with pins)
+  journey: {
+    subtitle: "Where I've Worked",
+    title: "My Journey",
+    description:
+      "Tracing the cities that have shaped my career so far — drag to explore.",
+    pins: [
+      {
+        city: "Nashik",
+        company: "Sort-ed.in",
+        period: "Apr 2021 - Mar 2023",
+        lat: 19.9975,
+        lon: 73.7898,
+        // Screen-space nudge (px) so tightly-spaced city labels don't overlap
+        labelOffset: [104, -58],
+      },
+      {
+        city: "Navi Mumbai",
+        company: "Indrones Solutions",
+        period: "May 2023 - Jan 2025",
+        lat: 19.077,
+        lon: 72.9986,
+        labelOffset: [-108, 6],
+      },
+      {
+        city: "Bangalore",
+        company: "Razorpay",
+        period: "Jan 2025 - Present",
+        lat: 12.9352,
+        lon: 77.6146,
+        labelOffset: [108, 52],
+      },
     ],
   },
 
