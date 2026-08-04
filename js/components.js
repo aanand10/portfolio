@@ -2,34 +2,44 @@
 
 // Navigation component
 function renderNavigation(data) {
-  const { logo, links, social } = data;
+  const { logo, links } = data;
+  const mainLinks = links.filter((link) => !link.cta);
+  const cta = links.find((link) => link.cta);
 
   return `
-    <div class="logo">
-      <i class="${logo.icon}"></i>
+    <div class="nav-pill">
+      <a href="#hero" class="nav-brand" aria-label="Back to top">
+        <span class="nav-brand-icon"><i class="${logo.icon}"></i></span>
+        ${logo.name ? `<span class="nav-brand-name">${logo.name}</span>` : ""}
+      </a>
+      <ul class="nav-links">
+        ${mainLinks
+          .map(
+            (link) => `
+          <li>
+            <a href="${link.href}" aria-label="${link.text}" title="${link.text}">
+              <i class="${link.icon}" aria-hidden="true"></i>
+              <span>${link.text}</span>
+            </a>
+          </li>`
+          )
+          .join("")}
+      </ul>
+      ${
+        cta
+          ? `<a href="${cta.href}" class="nav-cta" aria-label="${cta.text}" title="${cta.text}">
+              <i class="${cta.icon}" aria-hidden="true"></i>
+              <span>${cta.text}</span>
+            </a>`
+          : ""
+      }
     </div>
-    <ul>
-      ${links
-        .map((link) => `<li><a href="${link.href}">${link.text}</a></li>`)
-        .join("")}
-    </ul>
-    <div class="social-links-vertical">
-      ${social
-        .map(
-          (item) =>
-            `<a href="${item.url}" target="_blank"><i class="${item.icon}"></i></a>`
-        )
-        .join("")}
-    </div>
-    <button class="mobile-toggle" aria-label="Toggle Navigation">
-      <i class="fas fa-bars"></i>
-    </button>
   `;
 }
 
 // Hero component
 function renderHero(data) {
-  const { subtitle, title, description, profileImage, buttons } = data;
+  const { subtitle, title, description, buttons } = data;
 
   return `
     <div class="hero-content">
@@ -50,9 +60,7 @@ function renderHero(data) {
           .join("")}
       </div>
     </div>
-    <div class="profile-image">
-      <img src="${profileImage}" alt="${title}" />
-    </div>
+    <div class="hero-globe" id="hero-globe" aria-label="Rotating dot-matrix globe"></div>
     <div class="scroll-indicator">
       <span>Scroll Down</span>
       <i class="fas fa-chevron-down"></i>
@@ -73,6 +81,48 @@ function renderAbout(data) {
     <div class="about-content">
       <div class="about-text">
         ${paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+      </div>
+    </div>
+  `;
+}
+
+// Journey component (globe with pins)
+function renderJourney(data) {
+  const { subtitle, title, description, pins } = data;
+
+  return `
+    <div class="section-header">
+      <span class="section-subtitle">${subtitle}</span>
+      <h2 class="section-title">${title}</h2>
+      <p class="section-description">${description}</p>
+    </div>
+    <div class="journey-content">
+      <div class="journey-globe-wrap">
+        <div class="journey-globe" id="journey-globe" aria-label="Interactive dot-matrix globe with career location pins"></div>
+        <div class="journey-hint">
+          <i class="fas fa-arrows-left-right-to-line"></i> Drag to spin &middot; hover a stop to focus
+        </div>
+      </div>
+      <div class="journey-timeline">
+        <div class="journey-route">
+          ${pins.map((pin) => `<span>${pin.city}</span>`).join('<i class="fas fa-arrow-right"></i>')}
+        </div>
+        <div class="journey-pins-list">
+          ${pins
+            .map(
+              (pin, index) => `
+            <button type="button" class="journey-pin-item" data-index="${index}">
+              <span class="journey-index">${String(index + 1).padStart(2, "0")}</span>
+              <div class="journey-pin-info">
+                <h4>${pin.company}</h4>
+                <span class="period">${pin.period}</span>
+                <span class="city"><i class="fas fa-location-dot"></i> ${pin.city}</span>
+              </div>
+            </button>
+          `
+            )
+            .join("")}
+        </div>
       </div>
     </div>
   `;
