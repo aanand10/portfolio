@@ -3,15 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
   initComponents();
 
   // Initialize the dot-matrix globes (hero + journey section)
-  if (window.PortfolioGlobe) {
-    window.PortfolioGlobe.initPortfolioGlobes(siteData);
-  }
+  const globes = window.PortfolioGlobe
+    ? window.PortfolioGlobe.initPortfolioGlobes(siteData)
+    : {};
 
-  // Initialize AOS (Animate on Scroll)
-  AOS.init({
-    duration: 800,
-    once: true,
-  });
+  // Smooth scroll, hero intro, cursor and scroll-driven animations
+  const motion = window.PortfolioMotion
+    ? window.PortfolioMotion.initMotion(globes)
+    : {};
+  window.lenis = motion.lenis || null;
 
   // Add event listeners
   addEventListeners();
@@ -89,10 +89,14 @@ function addEventListeners() {
         const offsetPosition =
           elementPosition + window.pageYOffset - headerOffset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
+        if (window.lenis) {
+          window.lenis.scrollTo(targetElement, { offset: -headerOffset });
+        } else {
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
       }
     });
   });

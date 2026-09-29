@@ -366,6 +366,7 @@
     }
     const baseRotation = { x: group.rotation.x, y: group.rotation.y };
     let target = null; // {x, y} when animating toward a focused pin
+    let spinBoost = 0; // extra spin fed in from scroll velocity, decays each frame
     let activeIndex = -1;
 
     // Sizing
@@ -471,7 +472,8 @@
         }
       } else if (!userInteracted) {
         if (autoRotate) {
-          group.rotation.y += autoRotateSpeed * delta * 60;
+          group.rotation.y += (autoRotateSpeed + spinBoost) * delta * 60;
+          spinBoost *= 0.92;
         } else if (sway) {
           // Gentle breathing motion so the globe never looks frozen
           group.rotation.y = baseRotation.y + Math.sin(now * 0.00022) * sway;
@@ -549,6 +551,10 @@
         userInteracted = false;
         target = rotationForLatLon(pin.lat, pin.lon);
       },
+      // Adds a burst of spin (e.g. from scroll velocity) on auto-rotating globes
+      nudge(amount) {
+        spinBoost = Math.max(-0.03, Math.min(0.03, spinBoost + amount));
+      },
       reset() {
         activeIndex = -1;
         target = { x: baseRotation.x, y: baseRotation.y };
@@ -569,7 +575,8 @@
   }
 
   function initPortfolioGlobes(siteData) {
-    if (!window.THREE) return;
+    const globes = { hero: null, journey: null };
+    if (!window.THREE) return globes;
     const accent =
       getComputedStyle(document.documentElement).getPropertyValue("--accent-color").trim() ||
       "#ff5c8d";
@@ -579,7 +586,7 @@
 
     const heroEl = document.getElementById("hero-globe");
     if (heroEl) {
-      createGlobe(heroEl, {
+      globes.hero = createGlobe(heroEl, {
         radius: 1,
         dotCount: Math.round(62000 * detail),
         accentColor: accent,
@@ -605,7 +612,7 @@
         lon: pins.reduce((sum, p) => sum + p.lon, 0) / pins.length,
       };
 
-      const globe = createGlobe(journeyEl, {
+      const globe = (globes.journey = createGlobe(journeyEl, {
         radius: 1.35,
         dotCount: Math.round(70000 * detail),
         accentColor: accent,
@@ -620,7 +627,7 @@
         starCount: Math.round(1600 * detail),
         glowStrength: 0.3,
         focus: focus,
-      });
+      }));
 
       if (globe) {
         document.querySelectorAll(".journey-pin-item").forEach((card) => {
@@ -643,6 +650,7 @@
         });
       }
     }
+    return globes;
   }
 
   window.PortfolioGlobe = { createGlobe, initPortfolioGlobes };

@@ -1739,3 +1739,142 @@ textarea.form-control {
   font-size: 0.97rem;
   text-decoration: underline;
 }
+
+/* =========== Motion layer (Lenis + GSAP) =========== */
+/* Lenis handles smoothing itself; native smooth scroll would fight it */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Hero title is split into masked characters for the intro reveal */
+.hero h1 .split-word {
+  display: inline-block;
+  overflow: hidden;
+  /* room for descenders (y, h) inside the mask */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+  vertical-align: top;
+}
+
+.hero h1 .split-char {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Hero call-to-actions as proper pills so the magnetic pull reads */
+.hero-buttons a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.7rem;
+  border-radius: 999px;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.hero-buttons a:first-child {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.hero-buttons a:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(255, 92, 141, 0.35);
+}
+
+/* Custom cursor (fine pointers only; added from JS) */
+html.has-custom-cursor,
+html.has-custom-cursor a,
+html.has-custom-cursor button,
+html.has-custom-cursor canvas {
+  cursor: none !important;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: var(--accent-color);
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 1.5px solid var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.35s ease, height 0.35s ease, margin 0.35s ease,
+    background-color 0.35s ease, border-color 0.35s ease, opacity 0.3s ease;
+}
+
+.cursor-ring.is-link {
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  background: rgba(255, 92, 141, 0.12);
+}
+
+.cursor-ring.is-drag {
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.cursor-ring.is-down {
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+}
+
+.cursor-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+html.cursor-hidden .cursor-dot,
+html.cursor-hidden .cursor-ring {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
